@@ -57,9 +57,9 @@
 		{t('mementos.count', 'Mementos', {
 			n: mementos.count,
 			total: mementos.all.length
-		})} //clarifying i removed this from the text because i dont want people to go unlock all the ones they dont have immediately or more like not have pressure to do so
+		})} 
         
-	</div>
+	</div> //clarifying i removed the counts from the text because i dont want people to go unlock all the ones they dont have immediately or more like not have pressure to do so
 
 	<div class="shottools">
 		<input
