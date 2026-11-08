@@ -60,6 +60,8 @@
 }
 
 .gamepage .mementogame {
+	display: flex;
+	flex-direction: column;
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;

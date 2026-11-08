@@ -9,7 +9,7 @@
 
 	const { mementos, locations } = getGameContext();
 	let query = $state('');
-	let sort: 'game' | 'name' = $state('game');
+	let sort: 'game' | 'name' | 'art'= $state('game');
 	let selected: Memento | null = $state(null);
     let {
 		onClose
@@ -40,6 +40,7 @@
 			})
 			.sort((a, b) => {
 				if (sort === 'name') return a.name.localeCompare(b.name);
+				if (sort === 'art') return a.art.localeCompare(b.art);
 				return (
 					locations.gameName(a.game || '').localeCompare(locations.gameName(b.game || '')) ||
 					a.name.localeCompare(b.name)
@@ -69,6 +70,7 @@
 		<select bind:value={sort} title={t('mementos.sort', 'Sort')} aria-label={t('mementos.sort', 'Sort')}>
 			<option value="game">{t('mementos.byGame', 'Game')}</option>
 			<option value="name">{t('mementos.byName', 'Name')}</option>
+			<option value="art">{t('mementos.byArt', 'Art')}</option>
 		</select>
 	</div>
 

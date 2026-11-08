@@ -24,5 +24,6 @@
 	<span class="mementoname">{memento.name}</span>
 	{#if memento.game}
 		<span class="mementogame">{locations.gameName(memento.game)}</span>
+		<span class="mementogame">{memento.art}</span>
 	{/if}
 </button>
