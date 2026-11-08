@@ -11,6 +11,7 @@
 		displayName,
 		settings,
 		mobile,
+		systemNotice = null,
 		engine = $bindable(null),
 		started = $bindable(false),
 		booted = $bindable(false),
@@ -28,6 +29,7 @@
 		displayName: string;
 		settings: GameSettings;
 		mobile: boolean;
+		systemNotice?: { text: string; mementoName?: string } | null;
 		engine?: any;
 		started?: boolean;
 		booted?: boolean;
@@ -290,6 +292,15 @@
 {#if netRetry.length}
 	<div class="net-retry" role="status">
 		{t('app.netRetry', 'Connection lost, retrying to load {file}…', { file: netRetry.join(', ') })}
+	</div>
+{/if}
+{#if systemNotice}
+	<div class="net-retry" role="status">
+		{#if systemNotice.mementoName}
+			{t('mementos.unlocked', 'Memento unlocked: {name}', { name: systemNotice.mementoName })}
+		{:else}
+			{systemNotice.text}
+		{/if}
 	</div>
 {/if}
 <!--

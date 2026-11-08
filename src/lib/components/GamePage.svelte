@@ -878,6 +878,7 @@
 					{displayName}
 					{settings}
 					mobile={mobileLayout}
+					systemNotice={chat.systemNotice}
 					bind:engine
 					bind:started
 					bind:booted

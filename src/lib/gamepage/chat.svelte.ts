@@ -38,6 +38,7 @@ export class ChatClient {
 	unread: Record<string, number> = $state({ game: 0, room: 0, site: 0 });
 	amAdmin = $state(false);
 	myUid = $state('');
+	systemNotice = $state<{ text: string; mementoName?: string } | null>(null);
 
 	friends: Contact[] = $state([]);
 	incoming: Contact[] = $state([]);
@@ -63,6 +64,7 @@ export class ChatClient {
 	private retry: Timers = { game: null, room: null, site: null };
 	private tries: Record<ChatKind, number> = { game: 0, room: 0, site: 0 };
 	private names: Record<ChatKind, string> = { game: '', room: '', site: '' };
+	private systemNoticeTimer: ReturnType<typeof setTimeout> | null = null;
 
 	constructor(private host: ChatHost) {}
 
@@ -89,9 +91,16 @@ export class ChatClient {
 	}
 
 	pushLocalSys(text: string) {
-		const tab = this.host.activeTab();
-		const kind = tab === 'site' || tab === 'room' || tab === 'game' ? tab : this.host.lastChatTab();
-		this.push(kind, { sys: true, text });
+		this.showSystemNotice(text);
+	}
+
+	private showSystemNotice(text: string, mementoName?: string) {
+		this.systemNotice = { text, mementoName };
+		if (this.systemNoticeTimer) clearTimeout(this.systemNoticeTimer);
+		this.systemNoticeTimer = setTimeout(() => {
+			this.systemNotice = null;
+			this.systemNoticeTimer = null;
+		}, 5000);
 	}
 
 	clear(tab: ChatTab) {
@@ -193,6 +202,9 @@ export class ChatClient {
 
 	closeAll() {
 		for (const kind of KINDS) this.close(kind);
+		if (this.systemNoticeTimer) clearTimeout(this.systemNoticeTimer);
+		this.systemNoticeTimer = null;
+		this.systemNotice = null;
 	}
 
 	private drop(kind: ChatKind, ws: WebSocket) {
@@ -256,17 +268,16 @@ export class ChatClient {
 			} else if (m.t === 'memento-unlock') {
 				const name = String(m.name || '');
 				if (this.host.mementos.addServerUnlock(name)) {
-					this.push(kind, { sys: true, text: `Memento unlocked: ${name}` });
+					this.showSystemNotice('', name);
 				}
 			} else if (m.t === 'sys') {
-				this.push(kind, { sys: true, text: String(m.text || '') });
+				this.showSystemNotice(String(m.text || ''));
 			} else if (m.t === 'muted') {
-				this.push(kind, {
-					sys: true,
-					text: m.until ? `You are muted until ${new Date(Number(m.until)).toLocaleString()}` : 'You are muted'
-				});
+				this.showSystemNotice(
+					m.until ? `You are muted until ${new Date(Number(m.until)).toLocaleString()}` : 'You are muted'
+				);
 			} else if (m.t === 'admin-ok' || m.t === 'admin-err') {
-				this.push(kind, { sys: true, text: `${m.t === 'admin-ok' ? 'OK' : 'Error'}: ${m.message}` });
+				this.showSystemNotice(`${m.t === 'admin-ok' ? 'OK' : 'Error'}: ${m.message}`);
 				if (m.t === 'admin-ok' && menu.target) this.requestModState(menu.target.name);
 			} else if (m.t === 'modstate') {
 				if (menu.target && m.target === menu.target.name) {
@@ -289,7 +300,7 @@ export class ChatClient {
 				m.t === 'shot-err' || m.t === 'shot-del-err' ||
 				m.t === 'changepw-ok' || m.t === 'changepw-err'
 			) {
-				this.push(kind, { sys: true, text: String(m.message || m.t) });
+				this.showSystemNotice(String(m.message || m.t));
 			} else if (m.t === 'shots') {
 				this.shots = (Array.isArray(m.shots) ? m.shots : [])
 					.map((p: any) => ({
@@ -303,12 +314,12 @@ export class ChatClient {
 				this.shotCount = Number(m.count) || this.shots.length;
 			} else if (m.t === 'shot-ok') {
 				this.shotCount = Number(m.count) || this.shotCount;
-				this.push(kind, { sys: true, text: `Screenshot saved (${this.shotCount}/${SHOT_MAX})` });
+				this.showSystemNotice(`Screenshot saved (${this.shotCount}/${SHOT_MAX})`);
 				this.requestShots();
 			} else if (m.t === 'shot-del-ok') {
 				this.shots = this.shots.filter((s) => s.id !== Number(m.id));
 				this.shotCount = Number(m.count) || this.shots.length;
-				this.push(kind, { sys: true, text: 'Screenshot deleted' });
+				this.showSystemNotice('Screenshot deleted');
 			} else if (m.t === 'room') {
 				this.host.onRoom(Number(m.room) || 0);
 				if (kind === 'room') this.requestRoster();
@@ -478,7 +489,7 @@ export class ChatClient {
 		if (!target) return;
 		const ws = this.ws.game;
 		if (!ws || ws.readyState !== 1) {
-			this.push('game', { sys: true, text: 'Game chat not connected — command not sent' });
+			this.showSystemNotice('Game chat not connected — command not sent');
 			return;
 		}
 		const payload: Record<string, unknown> = {
