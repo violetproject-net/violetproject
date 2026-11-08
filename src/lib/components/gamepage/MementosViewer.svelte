@@ -35,6 +35,7 @@
 					memento.name.toLowerCase().includes(q) ||
 					memento.desc.toLowerCase().includes(q) ||
 					memento.cond.toLowerCase().includes(q) ||
+					memento.art.toLowerCase().includes(q) ||
 					game.toLowerCase().includes(q)
 				);
 			})
