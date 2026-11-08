@@ -1,0 +1,40 @@
+.gamepage .savesgrid {
+	display: flex;
+    flex-wrap: wrap;
+	gap: 8px;
+}
+
+.gamepage .saveblock {
+    display: flex;
+    /* yeah */
+    flex: 1 1 calc(33.333% - 8%);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+
+    width: 100%;
+    padding: 8px;
+    gap: 4px;
+
+	background: #0a030d;
+	color: #ecd5e3;
+	border: 1px solid #333847;
+	border-radius: 8px;
+    font: 13px system-ui, sans-serif;
+}
+
+.gamepage .saveblock .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.gamepage .saveblock button {
+    cursor: pointer;
+    width: 100%;
+    padding: 4px 10px;
+    border-radius: 6px;
+}

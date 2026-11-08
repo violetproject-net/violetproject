@@ -1,0 +1,53 @@
+.gamepage .setrow {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 6px 0;
+}
+
+.gamepage .setrow span {
+	flex: 1;
+}
+
+.gamepage .setrow button {
+	cursor: pointer;
+	padding: 4px 10px;
+	border-radius: 6px;
+}
+
+.gamepage .setrow select {
+	padding: 4px 8px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: #262a36;
+	color: #fff;
+}
+
+.gamepage .setrow input[type='color'] {
+	width: 44px;
+	height: 28px;
+	padding: 2px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: #262a36;
+	cursor: pointer;
+}
+
+.gamepage .setrow input[type='range'] {
+	flex: 1;
+	min-width: 0;
+	cursor: pointer;
+}
+
+.gamepage .setrow input[type='checkbox'] {
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+
+.gamepage .save-settings {
+	width: 100%;
+	cursor: pointer;
+	padding: 8px 10px;
+	border-radius: 8px;
+}

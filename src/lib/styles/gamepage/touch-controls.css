@@ -1,0 +1,118 @@
+.gamepage .chat:not(.mobile) .controls-view {
+	--tcs: clamp(36px, min(20cqw, 30cqh), 96px);
+}
+
+.gamepage .controls-view {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+	container-type: size;
+	--tcs: clamp(40px, min(23cqw, 34cqh), 110px);
+	touch-action: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.gamepage .controls-view * {
+	touch-action: none;
+}
+.gamepage .controls-view :focus,
+.gamepage .controls-view :focus-visible {
+	outline: none;
+}
+.gamepage .controls-view .cpad-dpad {
+	position: absolute;
+	left: 14px;
+	bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+}
+.gamepage .controls-view .cpad-dpad svg {
+	display: block;
+	width: calc(2 * var(--tcs));
+	height: calc(2 * var(--tcs));
+	fill: transparent;
+	pointer-events: none;
+}
+.gamepage .controls-view .cpad-dpad svg path[id^='tpad-'] {
+	pointer-events: all;
+	cursor: pointer;
+}
+.gamepage .controls-view .cpad-dpad svg path[id^='tpad-'].active {
+	fill: rgba(255, 255, 255, 0.25);
+}
+.gamepage .controls-view .cpad-dpad svg #tpad-center {
+	fill: none;
+	pointer-events: none;
+}
+.gamepage .controls-view .tpad-outline {
+	fill: #c589fa;
+	stroke: #000;
+	stroke: buttonborder;
+	stroke-width: 1.6;
+	stroke-linejoin: round;
+	pointer-events: none;
+}
+.gamepage .controls-view .cpad-buttons {
+	position: absolute;
+	right: 14px;
+	bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+	width: calc(var(--tcs) * 2);
+	height: calc(var(--tcs) * 2.3);
+	pointer-events: none;
+}
+.gamepage .controls-view .cbtn {
+	position: absolute;
+	pointer-events: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border-radius: 50%;
+	background: #c589fa;
+	color: #ff00ff;
+	font: 700 16px system-ui, sans-serif;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.gamepage .controls-view .cbtn#tpad-cancel {
+	top: calc(var(--tcs) * 0.58);
+	left: calc(var(--tcs) * 0.06);
+	width: calc(var(--tcs) * 0.95);
+	height: calc(var(--tcs) * 0.95);
+	font-size: calc(var(--tcs) * 0.4);
+}
+.gamepage .controls-view .cbtn#tpad-shift {
+	bottom: 0;
+	left: calc(var(--tcs) * 0.1);
+	width: calc(var(--tcs) * 0.65);
+	height: calc(var(--tcs) * 0.65);
+	font-size: calc(var(--tcs) * 0.27);
+}
+.gamepage .controls-view .cbtn#tpad-ok {
+	bottom: 0;
+	right: 0;
+	width: calc(var(--tcs) * 0.95);
+	height: calc(var(--tcs) * 0.95);
+	font-size: calc(var(--tcs) * 0.4);
+}
+.gamepage .controls-view .cbtn#tpad-9 {
+	top: 0;
+	right: 0;
+	width: calc(var(--tcs) * 0.6);
+	height: calc(var(--tcs) * 0.6);
+	font-size: calc(var(--tcs) * 0.26);
+}
+.gamepage .controls-view .cbtn#tpad-1 {
+	top: calc(var(--tcs) * 0.68);
+	right: 0;
+	width: calc(var(--tcs) * 0.6);
+	height: calc(var(--tcs) * 0.6);
+	font-size: calc(var(--tcs) * 0.26);
+}
+.gamepage .controls-view .cbtn.active {
+	background: #d9a6ff;
+}

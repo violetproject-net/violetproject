@@ -1,0 +1,61 @@
+.gamepage .modmenu {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	position: fixed;
+	z-index: 70;
+	width: 210px;
+	max-width: calc(100vw - 16px);
+	max-height: 75vh;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	background: #24102f;
+	color: #ecd5e3;
+	border: 1px solid #333847;
+	border-radius: 8px;
+	padding: 10px;
+	font: 13px system-ui, sans-serif;
+	box-shadow: 4px 4px 0 #0d0614;
+}
+
+.gamepage .modmenu::-webkit-scrollbar {
+	display: none;
+}
+
+.gamepage .modmenu label {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 12px;
+	opacity: 0.9;
+}
+
+.gamepage .modmenu input {
+	padding: 6px 8px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+}
+
+.gamepage .modmenu .modrow {
+	display: flex;
+	gap: 6px;
+}
+
+.gamepage .modmenu .modrow button {
+	flex: 1;
+	cursor: pointer;
+	padding: 6px 8px;
+	border-radius: 6px;
+}
+
+.gamepage .modmenu .vp-close {
+	font-size: 1.1rem;
+}
+
+.gamepage .modmenu .modnote {
+	font-size: 12px;
+	opacity: 0.7;
+}

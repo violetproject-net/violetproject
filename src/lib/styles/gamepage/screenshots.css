@@ -1,0 +1,93 @@
+.gamepage .shotgrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+}
+
+.gamepage .shotcard {
+	user-select: none;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 6px;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	min-width: 0;
+}
+
+.gamepage .shotcard img {
+	user-select: none;
+	image-rendering: pixelated;
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: contain;
+	border-radius: 6px;
+	background: #000;
+	cursor: zoom-in;
+}
+
+.gamepage .shottools {
+	display: flex;
+	gap: 6px;
+}
+
+.gamepage .shottools input {
+	flex: 1;
+	min-width: 0;
+	padding: 4px 8px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+	font-size: 12px;
+}
+
+.gamepage .shottools select {
+	padding: 4px 8px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.gamepage .shotgrid.wide {
+	user-select: text;
+	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+.gamepage .shotcap {
+	user-select: text;
+	display: flex;
+	justify-content: space-between;
+	gap: 6px;
+	font-size: 11px;
+	opacity: 0.75;
+}
+
+.gamepage .shotcap span:first-child {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.gamepage .shotcap span:last-child {
+	flex: none;
+	white-space: nowrap;
+}
+
+.gamepage .shotrow {
+	display: flex;
+	gap: 6px;
+}
+
+.gamepage .shotrow button {
+	flex: 1;
+	cursor: pointer;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 12px;
+}

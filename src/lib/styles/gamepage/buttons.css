@@ -1,0 +1,25 @@
+.gamepage .auth-bar .login-button,
+.gamepage .chat-head .cam-button,
+.gamepage .chat-reconnect button,
+.gamepage .modmenu .modrow button,
+.gamepage .reportbox .report-send,
+.gamepage .reportbox .report-download,
+.gamepage .shotrow button,
+.gamepage .setrow button,
+.gamepage .save-settings,
+.gamepage .saveblock button,
+.gamepage .friendrow button {
+	background: #c589fa;
+	color: #000;
+	user-select: none;
+}
+
+.gamepage .chat button {
+	font-size: min(var(--btnfs, 13px), max(5px, 4cqw));
+	user-select: none;
+}
+
+.gamepage .chat button:disabled {
+	opacity: 0.4;
+	user-select: none;
+}

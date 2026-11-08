@@ -1,0 +1,38 @@
+.vp-backdrop {
+	user-select: text;
+	position: fixed;
+	inset: 0;
+	z-index: 80;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	background: rgb(13 6 20 / 75%);
+    scrollbar-width: none;
+	overflow-y: scroll;
+}
+
+.vp-box {
+	user-select: text;
+	scrollbar-width: none;
+	box-sizing: border-box;
+	background: #24102f;
+	color: #ecd5e3;
+	box-shadow: 8px 8px 0 #0d0614;
+	border-radius: 0.25rem;
+}
+
+.vp-close {
+	user-select: none;
+	margin-left: auto;
+	cursor: pointer;
+	border: 0;
+	background: transparent;
+	color: #e9d5ff;
+	line-height: 1;
+}
+
+.vp-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}

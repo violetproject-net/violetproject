@@ -1,0 +1,84 @@
+.gamepage .reportbox {
+	width: min(100%, 22rem);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 1.25rem;
+	font: 13px system-ui, sans-serif;
+}
+
+.gamepage .reportbox .vp-close {
+	font-size: 1.1rem;
+}
+
+.gamepage .reportbox textarea {
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 5rem;
+	resize: vertical;
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+	font: inherit;
+}
+
+.gamepage .reportbox .report-quote {
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+	opacity: 0.85;
+	font-style: italic;
+	overflow-wrap: anywhere;
+	max-height: 6rem;
+	overflow-y: auto;
+}
+
+.gamepage .reportbox input[type='password'] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+	font: inherit;
+}
+
+.gamepage .reportbox .report-send {
+	cursor: pointer;
+	padding: 8px 10px;
+	border-radius: 8px;
+}
+
+.gamepage .reportbox.shotview {
+	width: min(96vw, calc((92vh - 7rem) * 4 / 3));
+	height: 92vh;
+	height: 92dvh;
+	max-width: 96vw;
+	max-height: 92vh;
+	overflow-y: auto;
+}
+
+.gamepage .reportbox.shotview > img {
+	user-select: none;
+	flex: 1 1 0;
+	min-height: 0;
+	width: 100%;
+	max-width: 100%;
+	max-height: none;
+	object-fit: contain;
+	image-rendering: pixelated;
+}
+
+.gamepage .reportbox .report-download {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 8px 10px;
+	border-radius: 8px;
+}

@@ -1,0 +1,217 @@
+.gamepage .auth-bar {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 8px 10px;
+	border-bottom: 1px solid #333847;
+	color: #fff;
+	font: 12px system-ui, sans-serif;
+	user-select: none;
+}
+
+.gamepage .auth-bar .login-button {
+	margin-left: auto;
+	cursor: pointer;
+	padding: 4px 10px;
+	border-radius: 6px;
+}
+
+.gamepage .auth-bar .update-flag {
+	color: #ff6b6b;
+	background: none;
+	border: 0;
+	padding: 0;
+	text-decoration: underline;
+	cursor: pointer;
+	font: inherit;
+	white-space: nowrap;
+	user-select: none;
+}
+
+.gamepage .chat {
+	height: 100%;
+	z-index: 60;
+	display: flex;
+	flex-direction: column;
+	background: rgba(46, 20, 71, 0.95);
+	background: repeating-linear-gradient( -45deg, #0d0614 0px, #0d0614 5px, #25102f 25px, #25102f 11px, #0d0614 25px );
+	color: lavender;
+	font: 13px system-ui, sans-serif;
+	border-left: 1px solid #333847;
+	text-align: left;
+	text-shadow: none;
+
+	container-type: inline-size;
+}
+
+.gamepage .chat.mobile {
+	top: var(--cvch);
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	min-width: 0;
+	border-left: 0;
+	border-top: 1px solid #333847;
+}
+
+.gamepage .chat.mobile .controls-row button {
+	flex: 1;
+}
+
+.gamepage .chat-head {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 8px 10px;
+	border-bottom: 1px solid #333847;
+}
+
+.gamepage .chat-tabs {
+	display: flex;
+	gap: 4px;
+	flex-wrap: nowrap;
+	min-width: 0;
+}
+
+.gamepage .chat-tabs button {
+	cursor: pointer;
+	opacity: 0.6;
+	background: none;
+	border: 1px solid #333847;
+	border-radius: 6px;
+	color: lavender;
+	padding: 2px 8px;
+	font-size: 12px;
+	min-width: 0;
+	flex-shrink: 1;
+	white-space: nowrap;
+	overflow: hidden;
+
+	display: flex;
+	justify-content: center;
+}
+
+.gamepage .chat-tabs button.active {
+	opacity: 1;
+	color: violet;
+	border-color: violet;
+}
+
+.gamepage .chat-tabs button.unread {
+	background: #f0a6f5;
+	border-color: #f0a6f5;
+	color: #24102f;
+}
+
+.gamepage .chat-head button {
+	margin-left: auto;
+	cursor: pointer;
+}
+
+.gamepage .chat-tabs.sub .cam-button {
+	background: #c589fa;
+	color: #000;
+	cursor: pointer;
+	padding: 4px 10px;
+	border-radius: 6px;
+	opacity: 1;
+	flex-shrink: 0;
+	height: 30px;
+	width: 40px;
+}
+
+.gamepage .chat-tabs.sub .cam-button:disabled {
+	background: #c589fa;
+	color: #000;
+	opacity: 0.4;
+	cursor: default;
+}
+
+.gamepage .chat-clear {
+	cursor: pointer;
+	padding: 2px 8px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: none;
+	color: lavender;
+	font-size: 12px;
+	opacity: 0.8;
+	margin-left: auto;
+}
+
+.gamepage .chat-tabs.sub {
+	padding: 4px 10px;
+	border-bottom: 1px solid #333847;
+}
+
+.gamepage .chat-row {
+	display: flex;
+	gap: 6px;
+	padding: 8px 10px;
+	border-top: 1px solid #333847;
+}
+
+.gamepage .chat-row input {
+	user-select: none;
+	flex: 1;
+	min-width: 0;
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #262a36;
+	color: #fff;
+}
+
+.gamepage .chat-row button {
+	flex: 1;
+	min-width: 0;
+	padding: 8px 10px;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #262a36;
+	color: #fff;
+}
+
+.gamepage .chat-reconnect {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 6px 10px;
+	border-bottom: 1px solid #333847;
+	color: #fff;
+	font: 12px system-ui, sans-serif;
+	user-select: none;
+}
+
+.gamepage .chat-where {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 6px 10px;
+	border-bottom: 1px solid #333847;
+	color: #fff;
+	font: 12px system-ui, sans-serif;
+	font-size: min(var(--stfs, 12px), max(8px, 4cqw));
+}
+
+.gamepage .chat-reconnect b {
+	color: #ff6b6b;
+}
+
+.gamepage .chat-reconnect b.online {
+	color: #6aa84f;
+}
+
+.gamepage .chat-reconnect button {
+	cursor: pointer;
+	margin-left: auto;
+	padding: 4px 10px;
+	border-radius: 6px;
+}
+
+.gamepage .auth-bar,
+.gamepage .chat-reconnect {
+	font-size: var(--stfs, 12px);
+}

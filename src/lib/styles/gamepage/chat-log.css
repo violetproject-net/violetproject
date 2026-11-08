@@ -1,0 +1,175 @@
+.gamepage .chat-log {
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 8px 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	overflow-wrap: anywhere;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.gamepage .chat-log::-webkit-scrollbar {
+	display: none;
+}
+.gamepage::selection {
+color: #dcbfff;
+background-color: #8d30ff;
+}
+.gamepage .chat-log .sys {
+	opacity: 0.55;
+	font-size: 12px;
+}
+
+.gamepage .chat-log .pname,
+.gamepage .chat-log .setrow b {
+	margin-right: 6px;
+}
+
+.gamepage .chat-log .msg {
+	display: flex;
+	gap: 6px;
+	align-items: baseline;
+}
+
+.gamepage .chat-log .msg.stacked {
+	flex-direction: column;
+	align-items: stretch;
+	gap: 2px;
+}
+
+.gamepage .chat-log .msg.announce {
+	font-weight: 700;
+	font-size: 1.5em;
+}
+
+.gamepage .chat-log .msg .msghead {
+	display: flex;
+	gap: 6px;
+	align-items: baseline;
+}
+
+.gamepage .chat-log .msg.divided {
+	border-bottom: var(--divpx, 1px) solid #c589fa;
+	padding-bottom: 4px;
+}
+
+.gamepage .chat-log .spoiler {
+	background: #000;
+	color: transparent;
+	cursor: pointer;
+	border-radius: 3px;
+	padding: 0 4px;
+	user-select: none;
+}
+
+.gamepage .chat-log .spoiler.open {
+	background: transparent;
+	color: inherit;
+}
+
+.gamepage .chat-log .msg.ping {
+	border-radius: 6px;
+	padding: 2px 6px;
+}
+
+.gamepage .chat-log .msg span {
+	flex: 1;
+	min-width: 0;
+}
+
+.gamepage .chat-log .msg .meta {
+	flex: none;
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	gap: 6px;
+	margin-left: auto;
+	min-width: 0;
+	max-width: 60%;
+}
+
+.gamepage .chat-log .msg .pgame + time::before {
+	content: '· ';
+	opacity: 0.5;
+}
+
+.gamepage .chat-log .msg time {
+	flex: none;
+	opacity: 0.55;
+	font-size: 0.85em;
+	white-space: nowrap;
+}
+
+.gamepage .chat-log .msg .pgame {
+	flex: none;
+	min-width: 0;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	opacity: 0.55;
+	font-size: 0.8em;
+	white-space: nowrap;
+}
+
+.gamepage .chat-log .msg .pmap {
+	flex: none;
+	min-width: 0;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	opacity: 0.55;
+	font-size: 0.8em;
+	white-space: nowrap;
+}
+
+.gamepage .chat-log .msg .pmap + time::before,
+.gamepage .chat-log .msg .pmap + .pgame::before,
+.gamepage .chat-log .msg .pgame + .pmap::before {
+	content: '· ';
+	opacity: 0.5;
+}
+
+.gamepage .chat-log img.emoji {
+	display: inline-block;
+	width: auto;
+	height: 1.5em;
+	max-height: 1.5m;
+	margin: 0 1px;
+	vertical-align: middle;
+	object-fit: contain;
+}
+
+.gamepage .chat-log .msg.emoji-only img.emoji {
+	height: 3em;
+	max-height: 3em;
+}
+
+.gamepage .chat-log img.shot {
+	user-select: none;
+	image-rendering: pixelated;
+	display: block;
+	width: var(--shotsz, 120px);
+	max-width: 100%;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	margin: 2px 0;
+	background: #000;
+	cursor: zoom-in;
+}
+
+.gamepage .msgshots {
+	user-select: text;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin: 2px 0 2px 0;
+}
+
+.gamepage .msgshots .shot-hidden {
+	opacity: 0.55;
+	font-size: 0.85em;
+}
+

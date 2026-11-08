@@ -1,0 +1,51 @@
+.gamepage .emojipicker {
+	-ms-overflow-style: none;
+	position: fixed;
+	z-index: 70;
+	width: 210px;
+	max-width: calc(100vw - 16px);
+	max-height: 75vh;
+	overflow-y: auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 6px;
+	background: #24102f;
+	color: #ecd5e3;
+	border: 1px solid #333847;
+	border-radius: 8px;
+	padding: 10px;
+	font: 13px system-ui, sans-serif;
+	box-shadow: 4px 4px 0 #0d0614;
+}
+
+.gamepage .emojipicker::-webkit-scrollbar {
+	display: none;
+}
+
+.gamepage .emojipicker button {
+	display: grid;
+	place-items: center;
+	padding: 4px;
+	border: 1px solid transparent;
+	border-radius: 6px;
+	background: none;
+	cursor: pointer;
+	line-height: 0;
+}
+
+.gamepage .emojipicker button:hover,
+.gamepage .emojipicker button:focus-visible {
+	background: #333847;
+	border-color: violet;
+	outline: none;
+}
+
+.gamepage .emojipicker img {
+	user-select: none;
+	width: 32px;
+	height: 32px;
+	display: block;
+	object-fit: contain;
+	pointer-events: none;
+	user-select: none;
+}

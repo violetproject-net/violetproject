@@ -1,0 +1,105 @@
+
+.gamepage .mementogrid {
+	display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 8px;
+}
+
+.gamepage .mementocard {
+	user-select: none;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 6px;
+	min-width: 0;
+	align-items: center;
+	border-radius: 8px;
+	border: 1px solid #333847;
+	background: #0d0614;
+	color: #ecd5e3;
+	font: inherit;
+	appearance: none;
+	text-align: center;
+}
+
+.gamepage .mementocard:hover,
+.gamepage .mementocard:focus-visible {
+	border-color: #c589fa;
+	outline: none;
+}
+
+.gamepage .mementoart {
+	display: block;
+	width: min(var(--memento-size, 111px), 70vw);
+	height: min(var(--memento-size, 111px), 70vw);
+	object-fit: contain;
+	image-rendering: pixelated;
+	user-select: none;
+	border-radius: 6px;
+}
+
+.gamepage .mementoart-missing {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	border: 1px dashed #333847;
+	background: #000;
+	color: #ecd5e3;
+	opacity: 0.45;
+	font-size: 1.5rem;
+}
+
+.gamepage .mementoname {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 11px;
+	text-align: center;
+}
+
+.gamepage .mementogame {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 10px;
+	opacity: 0.65;
+	text-align: center;
+}
+
+.gamepage .reportbox.mementobox {
+    width: min(100%, 28rem);
+    max-height: 92vh;
+    max-height: 92dvh;
+    overflow-y: auto;
+}
+
+.gamepage .mementoview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+    
+}
+
+.gamepage .mementoview .mementoart {
+	width: min(var(--memento-size, 70vw), 70vw);
+	height: min(var(--memento-size, 70vw), 70vw);
+}
+
+.gamepage .mementodesc,
+.gamepage .mementocond,
+.gamepage .mementocredit {
+	width: 100%;
+	margin: 0;
+	font-size: 12px;
+	line-height: 1.45;
+	overflow-wrap: anywhere;
+}
+
+
+.gamepage .mementocredit {
+	text-align: center;
+}

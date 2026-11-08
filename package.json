@@ -1,0 +1,39 @@
+{
+	"name": "violetproject",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"db:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
+		"preview": "npm run db:migrate && vite preview --host 127.0.0.1 --port 4000",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^8.0.0",
+		"@sveltejs/kit": "^3.0.0",
+		"@sveltejs/vite-plugin-svelte": "^7.2.0",
+		"drizzle-kit": "^0.31.11",
+		"svelte": "^5.57.1",
+		"svelte-check": "^4.6.0",
+		"tsx": "^4.23.15",
+		"typescript": "^6.0.3",
+		"vite": "^8.3.0"
+	},
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*",
+		"#src/*": "./src/*"
+	},
+	"dependencies": {
+		"@rich_harris/svelte-split-pane": "^3.0.0",
+		"better-auth": "^1.7.7",
+		"dotenv": "^18.0.8",
+		"drizzle-orm": "^0.45.3",
+		"mysql2": "^3.15.3",
+		"prettier": "^3.9.10"
+	}
+}

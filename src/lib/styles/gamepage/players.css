@@ -1,0 +1,84 @@
+.gamepage .chat-log.fdiv .friendrow {
+	border-bottom: var(--fdivpx, 1px) solid #c589fa;
+}
+
+.gamepage .chat-log .friendrow.fgap {
+	margin-top: 10px;
+}
+
+.gamepage .chat-log .adm {
+	flex: none;
+	cursor: default;
+	display: inline-flex;
+	align-items: center;
+	margin-left: 4px;
+}
+
+.gamepage .chat-log .adm svg {
+	width: 0.85em;
+	height: 0.85em;
+	fill: currentColor;
+	display: block;
+}
+
+.gamepage .friendrow .dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #555;
+	flex: none;
+}
+
+.gamepage .friendrow .dot.on {
+	background: #6aa84f;
+}
+
+.gamepage .friendrow .sub {
+	opacity: 0.6;
+	font-size: 12px;
+	margin-left: auto;
+	white-space: nowrap;
+	min-width: 0;
+	flex-shrink: 9;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.gamepage .friendrow {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: nowrap;
+	padding: 4px 0;
+}
+
+.gamepage .friendrow b {
+	flex: 1 3 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.gamepage .friendrow button {
+	cursor: pointer;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 12px;
+	min-width: 0;
+	flex-shrink: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.gamepage .friendrow input {
+	flex: 1;
+	min-width: 0;
+	padding: 4px 8px;
+	border-radius: 6px;
+	border: 1px solid #333847;
+	background: #262a36;
+	color: #fff;
+	font-size: 12px;
+}
