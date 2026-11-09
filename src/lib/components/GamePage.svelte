@@ -31,7 +31,6 @@
 	import Lightbox from './gamepage/Lightbox.svelte';
 	import LookupTab from './gamepage/LookupTab.svelte';
 	import PasswordDialog from './gamepage/PasswordDialog.svelte';
-	import MementosTab from './gamepage/MementosTab.svelte';
 	import PlayerContextMenu from './gamepage/PlayerContextMenu.svelte';
 	import ReportDialog from './gamepage/ReportDialog.svelte';
 	import RosterTab from './gamepage/RosterTab.svelte';
@@ -944,8 +943,6 @@
 						<SwitchGameTab counts={stats.gameCounts} countsLive={stats.live} onPick={(slug) => (openGame = slug)} />
 					{:else if chatTab === 'saves'}
 						<GameSavesTab bind:this={savesTab} engine={engine} savePresence={SAVE_PRESENCE} saveError={saveError} onDownload={downloadSave} onUpload={uploadSave} onDelete={deleteSave} />
-					{:else if chatTab === 'mementos'}
-						<MementosTab />
 					{:else if chatTab === 'settings'}
 						<SettingsTabView tab={settingsTab} savedMessage={settingsSavedMsg} onSave={saveSettingsNow} onChangePassword={() => (passwordOpen = true)} openRulesPopup={() => RulesPopupOpen = true} />
 					{:else}
