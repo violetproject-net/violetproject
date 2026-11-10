@@ -119,13 +119,13 @@
 			engine.api.setVideoScalingMode(SCALE_ENUM[settings.scaleMode]);
 		});
 	});
-	$effect(() => {
+	/*$effect(() => {
 		settings.doNpcSync;
 		untrack(() => {
 			if (!engine) return;
 			engine.api.setEventSyncEnabled(settings.doNpcSync);
 		});
-	});
+	});*/
 	$effect(() => {
 		if (!started || !engine) return;
 		applyVolume();
