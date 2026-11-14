@@ -64,6 +64,7 @@ export const games: GameInfo[] = [
 	{ slug: 'kagesouzouin', name: 'Kage, Souzou, In', home: true },
 	{ slug: 'someday', name: 'Someday', home: true },
 	{ slug: 'unconscious', name: 'Collective Unconscious', home: true },
+	{ slug: 'citrus', name: 'Citrus', home: true },
 	{ slug: 'scoobydoo', name: 'Scooby Doo', home: false }
 ];
 

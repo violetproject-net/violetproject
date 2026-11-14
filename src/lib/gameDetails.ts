@@ -310,6 +310,14 @@ export const gameDetails: Record<string, GameDetails> = {
 		status: 'In development',
 		downloadPage: 'https://collectiveunconscious.neocities.org/download',
 		downloadLabel: 'neocities'
+	},
+    citrus: {
+		madeBy: 'berond + Citrus Dev Team',
+		releasedOn: { day: 31, month: 10, year: 2026  },
+		lastUpdate: { day: 12, month: 11, year: 2026 },
+		version: '0.4.11',
+		status: 'In development, Collaborative',
+		downloadPage: 'https://taranza15.itch.io/citrus',
 	}
 };
 
