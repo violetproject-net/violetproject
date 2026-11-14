@@ -15,10 +15,12 @@
 	-webkit-touch-callout: none;
 	-webkit-tap-highlight-color: transparent;
 }
-.gamepage .controls-view.overlay {
+.gamepage .controls-view {
 	opacity: 0.3;
 	position: fixed;
 	min-height: 0;
+	container-type: size;
+	--tcs: clamp(40px, min(23cqw, 34cqh), 110px);
 	touch-action: none;
 	-webkit-user-select: none;
 	user-select: none;
