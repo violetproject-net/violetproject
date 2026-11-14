@@ -204,7 +204,7 @@
 	let mementosOpen = $state(false);
 	let guestPopupOpen = $state(false);
 	let RulesPopupOpen = $state(false);
-	let toggleControls = $state(false);
+	let controlsToggled = $state(false);
 	function openRulesPopup() {
 		RulesPopupOpen = true; 
 	}
@@ -312,6 +312,13 @@
 		} catch {
 			return 0;
 		}
+	}
+
+    function toggleControls() {
+		if controlsToggled === false 
+		{controlsToggled = true }
+		else 
+		{controlsToggled = false}
 	}
 
 	function openViewer() {
@@ -931,7 +938,7 @@
                         onChatClick={handleChatClick}
 						onOpenMementos={openMementos}
 					/>
-					{#if isTouch && chatTab === 'controls' || toggleControls }
+					{#if isTouch && chatTab === 'controls' || controlsToggled }
 						<TouchControls />
 					{:else if chatTab === 'friends'}
 						<FriendsTab />
