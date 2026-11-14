@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from '../../i18n.svelte';
+    import { GameSettings } from '../../gamepage/settings.svelte';
 
 	type Key = { 
 		key: string; 
@@ -9,6 +10,8 @@
 		display?: string;
 	};
 
+	const settings = new GameSettings();
+    let controlsType = settings.controlsType;
 	const PAD_KEYS: Record<string, Key> = {
 		'tpad-up': { key: 'ArrowUp', code: 'ArrowUp', keyCode: 38, location: 0 },
 		'tpad-right': { key: 'ArrowRight', code: 'ArrowRight', keyCode: 39, location: 0 },
@@ -117,7 +120,7 @@
 	}
 </script>
 
-<div class="controls-view" role="group" aria-label={t('tabs.controls', 'Controls')} oncontextmenu={(e) => e.preventDefault()}>
+<div class="controls-view {controlsType}" role="group" aria-label={t('tabs.controls', 'Controls')} oncontextmenu={(e) => e.preventDefault()}>
 	<div class="cpad-dpad">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
 			<path
