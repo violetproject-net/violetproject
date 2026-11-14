@@ -36,8 +36,8 @@
 		{ id: 'tpad-cancel', cls: 'cbtn', label: ['controls.cancel', 'Cancel'], display: "X" },
 		{ id: 'tpad-ok', cls: 'cbtn', label: ['controls.confirm', 'Confirm'], display: "Z" },
 		{ id: 'tpad-9', cls: 'cbtn', label: ['controls.9', '9'], display: "9" },
-		{ id: 'tpad-1', cls: 'cbtn', label: ['controls.1', '1'], display: "1" }
-	    { id: 'tpad-3', cls: 'cbtn', label: ['controls.3', '3'], display: "3" }
+		{ id: 'tpad-1', cls: 'cbtn', label: ['controls.1', '1'], display: "1" },
+	    { id: 'tpad-3', cls: 'cbtn', label: ['controls.3', '3'], display: "3" },
 		{ id: 'tpad-5', cls: 'cbtn', label: ['controls.5', '5'], display: "5" }
 	];
 
