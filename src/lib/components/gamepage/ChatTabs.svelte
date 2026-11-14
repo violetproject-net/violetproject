@@ -2,7 +2,7 @@
 	import { t } from '../../i18n.svelte';
 	import { getGameContext } from '../../gamepage/context';
 	import type { ChatTab, SettingsTab, TopTab } from '../../gamepage/types';
-    import { GameSettings } from '../gamepage/settings.svelte';
+    import { GameSettings } from '../../gamepage/settings.svelte';
 
 	let {
 		topTab,
