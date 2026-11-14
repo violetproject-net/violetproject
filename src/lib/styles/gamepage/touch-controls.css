@@ -20,7 +20,7 @@
 	pointer-events: none;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 5px;
 	height: 50dvh;
 	container-type: size;
 	--tcs: clamp(40px, min(23cqw, 34cqh), 110px);
@@ -138,6 +138,7 @@
 .gamepage .controls-view .cbtn#tpad-3 {
 	top: calc(var(--tcs) * 0.68);
 	right: 0;
+	padding-right: 5px;
 	width: calc(var(--tcs) * 0.6);
 	height: calc(var(--tcs) * 0.6);
 	font-size: calc(var(--tcs) * 0.26);
@@ -145,6 +146,7 @@
 .gamepage .controls-view .cbtn#tpad-5 {
 	top: calc(var(--tcs) * 0.68);
 	right: 0;
+	padding-right: 5px;
 	width: calc(var(--tcs) * 0.6);
 	height: calc(var(--tcs) * 0.6);
 	font-size: calc(var(--tcs) * 0.26);
