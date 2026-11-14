@@ -8,8 +8,7 @@ export type ChatTab =
 	| 'shots'
 	| 'switch'
 	| 'saves'
-	| 'settings'
-	| 'controls';
+	| 'settings';
 export type TopTab = 'chat' | 'players' | 'other' | 'settings';
 export type SettingsTab = 'audio' | 'scale' | 'layout' | 'misc' | 'saves';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { t } from '../../i18n.svelte';
-    import { GameSettings } from '../../gamepage/settings.svelte';
+	import { getGameContext } from '../../gamepage/context';
 
 	type Key = { 
 		key: string; 
@@ -10,8 +10,8 @@
 		display?: string;
 	};
 
-	const settings = new GameSettings();
-    let controlsType = settings.controlsType;
+	const { settings } = getGameContext();
+	const controlsType = $derived(settings.controlsType);
 	const PAD_KEYS: Record<string, Key> = {
 		'tpad-up': { key: 'ArrowUp', code: 'ArrowUp', keyCode: 38, location: 0 },
 		'tpad-right': { key: 'ArrowRight', code: 'ArrowRight', keyCode: 39, location: 0 },

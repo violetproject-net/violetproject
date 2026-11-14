@@ -205,6 +205,7 @@
 	let guestPopupOpen = $state(false);
 	let RulesPopupOpen = $state(false);
 	let controlsToggled = $state(false);
+	const controlsDocked = $derived(isTouch && controlsToggled && settings.controlsType === 'tab');
 	function openRulesPopup() {
 		RulesPopupOpen = true; 
 	}
@@ -217,6 +218,7 @@
 	// ANCHOR Tabs
 
 	function selectTab(tab: ChatTab) {
+		if (settings.controlsType === 'tab') controlsToggled = false;
 		chatTab = tab;
 		stats.ping();
 		if (tab === 'game' || tab === 'room' || tab === 'site') {
@@ -239,7 +241,6 @@
 
 	function selectSettings(tab: SettingsTab) {
 		settingsTab = tab;
-		if (chatTab === 'controls') selectTab('settings');
 	}
 
 	function focusChatBox() {
@@ -314,13 +315,12 @@
 		}
 	}
 
-   function toggleControls() {
-    if (controlsToggled === false) {
-        controlsToggled = true;
-    } else {
-        controlsToggled = false;
-    }
-}
+	function toggleControls() {
+		const opening = !controlsToggled;
+		if (opening && settings.controlsType === 'tab' && topTab !== 'chat') selectTop('chat');
+		controlsToggled = opening;
+		if (!opening && settings.controlsType === 'tab') void tick().then(() => chatLog?.scrollToBottom());
+	}
 
 	function openViewer() {
 		viewerOpen = true;
@@ -789,7 +789,6 @@
 		const applyMedia = () => {
 			isTouch = touchMq.matches;
 			isNarrow = narrowMq.matches;
-			if (!isTouch && chatTab === 'controls') selectTab('game');
 		};
 		applyMedia();
 		touchMq.addEventListener('change', applyMedia);
@@ -863,7 +862,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- ^^ this hopefully should not be a Problem .  . . . -->
-<div bind:this={elem} class="gamepage" class:no-select={chatTab === 'controls'}
+<div bind:this={elem} class="gamepage" class:no-select={controlsDocked}
 	// FIXME this is a bit hacky, but i don't know 
 	//  any other way to listen to the pointer events for the pane divider
 	//  as it doesnt export any kind of callbacks for them
@@ -939,7 +938,7 @@
                         onChatClick={handleChatClick}
 						onOpenMementos={openMementos}
 					/>
-					{#if isTouch && chatTab === 'controls' }
+					{#if controlsDocked}
 						<TouchControls />
 					{:else if chatTab === 'friends'}
 						<FriendsTab />
@@ -961,13 +960,13 @@
 					{#key menu.opened}
 						<PlayerContextMenu onReport={openReport} />
 					{/key}
-					{#if chatTab === 'game' || chatTab === 'room' || chatTab === 'site'}
+					{#if (chatTab === 'game' || chatTab === 'room' || chatTab === 'site') && !controlsDocked}
 						<ChatInput bind:value={chatInput} bind:input={chatField} onSend={sendChat} openGuestPopup={() => guestPopupOpen = true} />
 						{#if typingEmoji}
 							<EmojiPicker query={emojiQuery} anchor={chatField} onPick={insertEmoji} />
 						{/if}
 					{/if}
-					{#if controlsToggled }
+					{#if isTouch && controlsToggled && settings.controlsType === 'overlay'}
 						<TouchControls/>
 					{/if}	
 				</aside>

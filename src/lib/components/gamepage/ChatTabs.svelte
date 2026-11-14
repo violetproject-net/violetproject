@@ -35,7 +35,7 @@
 		toggleControls: () => void;
 	} = $props();
 
-	const { chat, settings } = getGameContext();
+	const { chat } = getGameContext();
 
 	let anyUnread = $derived((chat.unread.game ?? 0) + (chat.unread.room ?? 0) + (chat.unread.site ?? 0) > 0);
 </script>
@@ -43,7 +43,7 @@
 	<button class="cam-button" onclick={onScreenshot} disabled={!started} title={t('tabs.shot', 'Take screenshot')} aria-label={t('tabs.shot', 'Take screenshot')}><img src="img/button/camera.svg"></button>
     <button class="cam-button" onclick={toggleFullscreen} disabled={!started} title={t('tabs.fullscreen', 'Toggle Fullscreen')} aria-label={t('tabs.fullscreen', 'Toggle Fullscreen')}><img src="img/button/fullscreen.svg"></button>
 	<button class="cam-button" onclick={onOpenMementos} title={t('mementos.tab', 'Mementos')} aria-label={t('mementos.tab', 'Mementos')}><img src="img/button/mementos.svg"></button>
-	{#if isTouch && settings.controlsType === 'overlay'}
+	{#if isTouch}
 	<button class="cam-button" onclick={toggleControls} title={t('tabs.controls', 'Controls')} aria-label={t('tabs.controls', 'Controls')}><img src="img/button/controls.svg"></button>
 	{/if}
 </div>
@@ -85,10 +85,5 @@
 		<button class:active={settingsTab === 'scale'} onclick={() => onSettingsTab('scale')}>{t('settings.tab.scale', 'Scale')}</button>
 		<button class:active={settingsTab === 'layout'} onclick={() => onSettingsTab('layout')}>{t('settings.tab.layout', 'Layout')}</button>
 		<button class:active={settingsTab === 'misc'} onclick={() => onSettingsTab('misc')}>{t('settings.tab.misc', 'Misc')}</button>
-	</div>
-{/if}
-{#if isTouch && settings.controlsType === 'tab'}
-	<div class="chat-tabs sub controls-row">
-		<button class:active={chatTab === 'controls'} onclick={() => onTab('controls')}>{t('tabs.controls', 'Controls')}</button>
 	</div>
 {/if}

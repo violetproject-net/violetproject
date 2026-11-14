@@ -55,10 +55,6 @@
 	border-top: 1px solid #333847;
 }
 
-.gamepage .chat.mobile .controls-row button {
-	flex: 1;
-}
-
 .gamepage .chat-head {
 	display: flex;
 	gap: 8px;
