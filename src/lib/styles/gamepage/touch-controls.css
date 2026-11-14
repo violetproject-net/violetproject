@@ -3,7 +3,6 @@
 }
 
 .gamepage .controls-view.tab {
-	opacity: 0.3;
 	position: relative;
 	flex: 1;
 	min-height: 0;
@@ -15,9 +14,9 @@
 	-webkit-touch-callout: none;
 	-webkit-tap-highlight-color: transparent;
 }
-.gamepage .controls-view {
+.gamepage .controls-view.overlay {
 	opacity: 0.3;
-	position: fixed;
+	position: relative;
 	min-height: 0;
 	container-type: size;
 	--tcs: clamp(40px, min(23cqw, 34cqh), 110px);
