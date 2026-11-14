@@ -78,7 +78,7 @@
 	position: absolute;
 	right: 14px;
 	bottom: calc(14px + env(safe-area-inset-bottom, 0px));
-	width: calc(var(--tcs) * 2);
+	width: calc(var(--tcs) * 2.64);
 	height: calc(var(--tcs) * 2.3);
 	pointer-events: none;
 }
