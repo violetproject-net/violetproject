@@ -102,14 +102,14 @@
 }
 .gamepage .controls-view .cbtn#tpad-cancel {
 	top: calc(var(--tcs) * 0.58);
-	left: calc(var(--tcs) * 0.06);
+	left: calc(var(--tcs) * 0.7);
 	width: calc(var(--tcs) * 0.95);
 	height: calc(var(--tcs) * 0.95);
 	font-size: calc(var(--tcs) * 0.4);
 }
 .gamepage .controls-view .cbtn#tpad-shift {
 	bottom: 0;
-	left: calc(var(--tcs) * 0.1);
+	left: calc(var(--tcs) * 0.74);
 	width: calc(var(--tcs) * 0.65);
 	height: calc(var(--tcs) * 0.65);
 	font-size: calc(var(--tcs) * 0.27);
