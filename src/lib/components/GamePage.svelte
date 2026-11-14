@@ -314,12 +314,13 @@
 		}
 	}
 
-    function toggleControls() {
-		if controlsToggled === false 
-		{controlsToggled = true }
-		else 
-		{controlsToggled = false}
-	}
+   function toggleControls() {
+    if (controlsToggled === false) {
+        controlsToggled = true;
+    } else {
+        controlsToggled = false;
+    }
+}
 
 	function openViewer() {
 		viewerOpen = true;
