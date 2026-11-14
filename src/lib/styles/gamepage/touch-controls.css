@@ -17,6 +17,7 @@
 .gamepage .controls-view.overlay {
 	opacity: 0.3;
 	position: fixed;
+	pointer-events: none;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -28,6 +29,12 @@
 	user-select: none;
 	-webkit-touch-callout: none;
 	-webkit-tap-highlight-color: transparent;
+}
+.gamepage .controls-view.overlay {
+		pointer-events: none;
+}
+.gamepage .controls-view.overlay button {
+		pointer-events: auto;
 }
 .gamepage .controls-view * {
 	touch-action: none;
