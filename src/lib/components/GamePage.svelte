@@ -939,7 +939,7 @@
                         onChatClick={handleChatClick}
 						onOpenMementos={openMementos}
 					/>
-					{#if isTouch && chatTab === 'controls' || controlsToggled }
+					{#if isTouch && chatTab === 'controls' }
 						<TouchControls />
 					{:else if chatTab === 'friends'}
 						<FriendsTab />
@@ -967,6 +967,9 @@
 							<EmojiPicker query={emojiQuery} anchor={chatField} onPick={insertEmoji} />
 						{/if}
 					{/if}
+					{#if controlsToggled }
+						<TouchControls/>
+					{/if}	
 				</aside>
 			</section>
 		{/snippet}

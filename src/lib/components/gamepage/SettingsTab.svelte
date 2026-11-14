@@ -101,7 +101,13 @@
 			<input type="checkbox" bind:checked={settings.friendDividers} />
 		</SettingRow>
 		<Stepper label={t('settings.friendDividerPx', 'Friends divider thickness')} bind:value={settings.friendDividerPx} min={LIMITS.friendDividerPx[0]} max={LIMITS.friendDividerPx[1]} unit="px" />
-	{:else} 
+		<SettingRow label={t('settings.controlsType', 'Mobile controls type')}>
+			<select bind:value={settings.controlsType}>
+				<option value="overlay">{t('settings.controlsOverlay', 'Overlay')}</option>
+				<option value="stacked">{t('settings.controlsTab', 'Tab')}</option>
+			</select>
+		</SettingRow>
+		{:else} 
 		<SettingRow label={t('settings.language', 'Language')}>
 			<select value={currentLang()} onchange={(e) => setLang(e.currentTarget.value)}>
 				{#each langs() as l (l.code)}

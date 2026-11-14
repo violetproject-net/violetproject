@@ -7,6 +7,7 @@ export type NametagMode = 'classic' | 'compact' | 'none';
 export type ScaleMode = 'nearest' | 'bilinear' | 'integer';
 export type ShotVisibility = 'all' | 'friends' | 'none';
 export type ChatLayout = 'inline' | 'stacked';
+export type controlsType = 'overlay' | 'tab';
 
 export const LIMITS = {
 	chatFont: [11, 18],
@@ -49,6 +50,7 @@ export class GameSettings {
 	showMap = $state(true);
 	showMapGlobal = $state(false);
 	showWhere = $state(true);
+	controlsType: controlsType = $state('overlay');
 
 	// audio
 	mutePings = $state(false);

@@ -2,6 +2,7 @@
 	import { t } from '../../i18n.svelte';
 	import { getGameContext } from '../../gamepage/context';
 	import type { ChatTab, SettingsTab, TopTab } from '../../gamepage/types';
+    import { GameSettings } from '../gamepage/settings.svelte';
 
 	let {
 		topTab,
@@ -35,7 +36,7 @@
 		toggleControls: () => void;
 	} = $props();
 
-
+    const settings = new GameSettings();
 	const { chat } = getGameContext();
 
 	let anyUnread = $derived((chat.unread.game ?? 0) + (chat.unread.room ?? 0) + (chat.unread.site ?? 0) > 0);
@@ -44,7 +45,7 @@
 	<button class="cam-button" onclick={onScreenshot} disabled={!started} title={t('tabs.shot', 'Take screenshot')} aria-label={t('tabs.shot', 'Take screenshot')}><img src="img/button/camera.svg"></button>
     <button class="cam-button" onclick={toggleFullscreen} disabled={!started} title={t('tabs.fullscreen', 'Toggle Fullscreen')} aria-label={t('tabs.fullscreen', 'Toggle Fullscreen')}><img src="img/button/fullscreen.svg"></button>
 	<button class="cam-button" onclick={onOpenMementos} title={t('mementos.tab', 'Mementos')} aria-label={t('mementos.tab', 'Mementos')}><img src="img/button/mementos.svg"></button>
-	{#if isTouch}
+	{#if isTouch && settings.controlsType == 'overlay'}
 	<button class="cam-button" onclick={toggleControls} title={t('tabs.controls', 'Controls')} aria-label={t('tabs.controls', 'Controls')}><img src="img/button/controls.svg"></button>
 	{/if}
 </div>
@@ -88,7 +89,7 @@
 		<button class:active={settingsTab === 'misc'} onclick={() => onSettingsTab('misc')}>{t('settings.tab.misc', 'Misc')}</button>
 	</div>
 {/if}
-{#if isTouch}
+{#if isTouch && settings.controlsType == 'tab'}
 	<div class="chat-tabs sub controls-row">
 		<button class:active={chatTab === 'controls'} onclick={() => onTab('controls')}>{t('tabs.controls', 'Controls')}</button>
 	</div>
