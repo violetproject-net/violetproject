@@ -2,7 +2,6 @@
 	import { t } from '../../i18n.svelte';
 	import { getGameContext } from '../../gamepage/context';
 	import type { ChatTab, SettingsTab, TopTab } from '../../gamepage/types';
-    import { settings } from '../../gamepage/settings.svelte';
 
 	let {
 		topTab,
@@ -36,7 +35,7 @@
 		toggleControls: () => void;
 	} = $props();
 
-	const { chat } = getGameContext();
+	const { chat, settings } = getGameContext();
 
 	let anyUnread = $derived((chat.unread.game ?? 0) + (chat.unread.room ?? 0) + (chat.unread.site ?? 0) > 0);
 </script>
