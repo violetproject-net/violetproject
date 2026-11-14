@@ -19,7 +19,9 @@
 		'tpad-cancel': { key: 'Escape', code: 'Escape', keyCode: 27, location: 0, display: "X" },
 		'tpad-ok': { key: 'Enter', code: 'Enter', keyCode: 13, location: 0, display: "Z" },
 		'tpad-9': { key: '9', code: 'Digit9', keyCode: 57, location: 0, display: "9" },
-		'tpad-1': { key: '1', code: 'Digit1', keyCode: 49, location: 0, display: "1" }
+		'tpad-1': { key: '1', code: 'Digit1', keyCode: 49, location: 0, display: "1" },
+		'tpad-3': { key: '3', code: 'Digit3', keyCode: 51, location: 0, display: "3" },
+		'tpad-5': { key: '5', code: 'Digit5', keyCode: 53, location: 0, display: "5" }
 	};
 
 	const DPAD = [
@@ -35,6 +37,8 @@
 		{ id: 'tpad-ok', cls: 'cbtn', label: ['controls.confirm', 'Confirm'], display: "Z" },
 		{ id: 'tpad-9', cls: 'cbtn', label: ['controls.9', '9'], display: "9" },
 		{ id: 'tpad-1', cls: 'cbtn', label: ['controls.1', '1'], display: "1" }
+	    { id: 'tpad-3', cls: 'cbtn', label: ['controls.3', '3'], display: "3" }
+		{ id: 'tpad-5', cls: 'cbtn', label: ['controls.5', '5'], display: "5" }
 	];
 
 	/** which pad control each finger is currently on */

@@ -16,7 +16,8 @@
 		onScreenshot,
         toggleFullscreen,
         onChatClick,
-		onOpenMementos
+		onOpenMementos,
+		toggleControls
 	}: {
 		topTab: TopTab;
 		chatTab: ChatTab;
@@ -31,6 +32,7 @@
         toggleFullscreen: () => void;
         onChatClick: () => void;
 		onOpenMementos: () => void;
+		toggleControls: () => void;
 	} = $props();
 
 
@@ -42,7 +44,10 @@
 	<button class="cam-button" onclick={onScreenshot} disabled={!started} title={t('tabs.shot', 'Take screenshot')} aria-label={t('tabs.shot', 'Take screenshot')}><img src="img/button/camera.svg"></button>
     <button class="cam-button" onclick={toggleFullscreen} disabled={!started} title={t('tabs.fullscreen', 'Toggle Fullscreen')} aria-label={t('tabs.fullscreen', 'Toggle Fullscreen')}><img src="img/button/fullscreen.svg"></button>
 	<button class="cam-button" onclick={onOpenMementos} title={t('mementos.tab', 'Mementos')} aria-label={t('mementos.tab', 'Mementos')}><img src="img/button/mementos.svg"></button>
-	</div>
+	{#if isTouch}
+	<button class="cam-button" onclick={toggleControls} title={t('tabs.controls', 'Controls')} aria-label={t('tabs.controls', 'Controls')}><img src="img/button/controls.svg"></button>
+	{/if}
+</div>
 <div class="chat-head">
 	<div class="chat-tabs">
 		<button class:active={topTab === 'chat'} class:unread={anyUnread} onclick={() => { onTop('chat'); onChatClick?.(); }}> {t('tabs.chat', 'Chat')} </button>
