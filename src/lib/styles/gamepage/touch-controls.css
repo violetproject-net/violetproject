@@ -16,8 +16,11 @@
 }
 .gamepage .controls-view.overlay {
 	opacity: 0.3;
-	position: relative;
-	min-height: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 50dvh;
 	container-type: size;
 	--tcs: clamp(40px, min(23cqw, 34cqh), 110px);
 	touch-action: none;
