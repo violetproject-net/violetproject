@@ -107,7 +107,6 @@
 				<option value="stacked">{t('settings.controlsTab', 'Tab')}</option>
 			</select>
 		</SettingRow> commented out because it doesnt even work right now if someone feels up to it u can fix it --> 
-		// FIXME
 		{:else} 
 		<SettingRow label={t('settings.language', 'Language')}>
 			<select value={currentLang()} onchange={(e) => setLang(e.currentTarget.value)}>
