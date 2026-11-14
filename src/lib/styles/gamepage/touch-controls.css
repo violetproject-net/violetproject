@@ -136,17 +136,15 @@
 	font-size: calc(var(--tcs) * 0.26);
 }
 .gamepage .controls-view .cbtn#tpad-3 {
-	top: calc(var(--tcs) * 0.68);
-	right: 0;
-	padding-right: 5px;
+	top: 0;
+	right: calc(var(--tcs) * 1.36);
 	width: calc(var(--tcs) * 0.6);
 	height: calc(var(--tcs) * 0.6);
 	font-size: calc(var(--tcs) * 0.26);
 }
 .gamepage .controls-view .cbtn#tpad-5 {
-	top: calc(var(--tcs) * 0.68);
-	right: 0;
-	padding-right: 5px;
+	top: 0;
+	right: calc(var(--tcs) * 2.04);
 	width: calc(var(--tcs) * 0.6);
 	height: calc(var(--tcs) * 0.6);
 	font-size: calc(var(--tcs) * 0.26);
