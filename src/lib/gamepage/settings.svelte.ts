@@ -7,6 +7,7 @@ export type NametagMode = 'classic' | 'compact' | 'none';
 export type ScaleMode = 'nearest' | 'bilinear' | 'integer';
 export type ShotVisibility = 'all' | 'friends' | 'none';
 export type ChatLayout = 'inline' | 'stacked';
+export type controlsType = 'overlay' | 'tab';
 
 export const LIMITS = {
 	chatFont: [11, 18],
@@ -49,6 +50,7 @@ export class GameSettings {
 	showMap = $state(true);
 	showMapGlobal = $state(false);
 	showWhere = $state(true);
+	controlsType: controlsType = $state('overlay');
 
 	// audio
 	mutePings = $state(false);
@@ -118,6 +120,8 @@ export class GameSettings {
 			const legacy = gv !== null && Number.isFinite(Number(gv)) ? clamp(Number(gv), LIMITS.musicVolume) : 100;
 			this.musicVolume = num('vp_music_volume', LIMITS.musicVolume, legacy);
 			this.sfxVolume = num('vp_sfx_volume', LIMITS.sfxVolume, legacy);
+			this.controlsType = 
+		        oneOf(ls.getItem('vp_controls_type'), ['overlay', 'tab'] as const) ?? this.controlsType;
 		} catch {}
 	}
 
@@ -163,6 +167,7 @@ export class GameSettings {
 			ls.setItem('vp_sfx_volume', String(this.sfxVolume));
 			ls.setItem('vp_nametag', this.nametagMode);
 			ls.setItem('vp_scale_mode', this.scaleMode);
+			ls.setItem('vp_controls_type', this.controlsType);
 		} catch {}
 	}
 
@@ -194,6 +199,7 @@ export class GameSettings {
 			friendDividerPx: this.friendDividerPx,
 			shotSize: this.shotSize,
 			shotVisibility: this.shotVisibility,
+			controlsType: this.controlsType,
 			lang: currentLang()
 		};
 	}
@@ -282,6 +288,8 @@ export class GameSettings {
 		if (take('shotScale')) this.shotScale = num(s.shotScale, LIMITS.shotScale, this.shotScale);
 		if (take('shotVisibility'))
 			this.shotVisibility = oneOf(s.shotVisibility, ['all', 'friends', 'none'] as const) ?? this.shotVisibility;
+		if (take('controlsType'))
+			this.controlsType = oneOf(s.controlsType, ['overlay', 'tab'] as const) ?? this.controlsType;
 		if (take('lang') && typeof s.lang === 'string' && s.lang && s.lang !== currentLang()) setLang(s.lang);
 		this.prev = this.snapshot();
 	}

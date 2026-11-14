@@ -204,6 +204,7 @@
 	let mementosOpen = $state(false);
 	let guestPopupOpen = $state(false);
 	let RulesPopupOpen = $state(false);
+	let controlsToggled = $state(false);
 	function openRulesPopup() {
 		RulesPopupOpen = true; 
 	}
@@ -312,6 +313,14 @@
 			return 0;
 		}
 	}
+
+   function toggleControls() {
+    if (controlsToggled === false) {
+        controlsToggled = true;
+    } else {
+        controlsToggled = false;
+    }
+}
 
 	function openViewer() {
 		viewerOpen = true;
@@ -920,6 +929,7 @@
 						{settingsTab}
 						{started}
 						{isTouch}
+						{toggleControls}
 						onTop={selectTop}
 						onTab={selectTab}
 						onSettingsTab={selectSettings}
@@ -929,7 +939,7 @@
                         onChatClick={handleChatClick}
 						onOpenMementos={openMementos}
 					/>
-					{#if isTouch && chatTab === 'controls'}
+					{#if isTouch && chatTab === 'controls' }
 						<TouchControls />
 					{:else if chatTab === 'friends'}
 						<FriendsTab />
@@ -957,6 +967,9 @@
 							<EmojiPicker query={emojiQuery} anchor={chatField} onPick={insertEmoji} />
 						{/if}
 					{/if}
+					{#if controlsToggled }
+						<TouchControls/>
+					{/if}	
 				</aside>
 			</section>
 		{/snippet}
