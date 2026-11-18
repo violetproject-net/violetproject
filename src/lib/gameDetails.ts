@@ -318,6 +318,14 @@ export const gameDetails: Record<string, GameDetails> = {
 		version: '0.4.11',
 		status: 'In development, Collaborative',
 		downloadPage: 'https://taranza15.itch.io/citrus',
+	},
+	sheawaits: {
+		madeBy: 'rayinpixels',
+		releasedOn: { day: 15, month: 7, year: 2019  },
+		lastUpdate: { day: 21, month: 6, year: 2025 },
+		version: '0.03a',
+		status: 'In development',
+		downloadPage: 'https://rayinpixels.itch.io/she-awaits-003',
 	}
 };
 
