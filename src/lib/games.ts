@@ -65,7 +65,7 @@ export const games: GameInfo[] = [
 	{ slug: 'someday', name: 'Someday', home: true },
 	{ slug: 'unconscious', name: 'Collective Unconscious', home: true },
 	{ slug: 'citrus', name: 'Citrus', home: true },
-	{ slug: 'shewaits', name: 'She Awaits', home: true},
+	{ slug: 'sheawaits', name: 'She Awaits', home: true},
 	{ slug: 'scoobydoo', name: 'Scooby Doo', home: false }
 ];
 
