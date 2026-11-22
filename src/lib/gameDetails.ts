@@ -314,10 +314,10 @@ export const gameDetails: Record<string, GameDetails> = {
     citrus: {
 		madeBy: 'berond + Citrus Dev Team',
 		releasedOn: { day: 31, month: 10, year: 2026  },
-		lastUpdate: { day: 12, month: 11, year: 2026 },
-		version: '0.4.11',
+		lastUpdate: { day: 20, month: 11, year: 2026 },
+		version: '0.6A',
 		status: 'In development, Collaborative',
-		downloadPage: 'https://taranza15.itch.io/citrus',
+		downloadPage: 'https://taranza15.itch.io/citrus'
 	},
 	sheawaits: {
 		madeBy: 'rayinpixels',
@@ -325,7 +325,16 @@ export const gameDetails: Record<string, GameDetails> = {
 		lastUpdate: { day: 21, month: 6, year: 2025 },
 		version: '0.03a',
 		status: 'In development',
-		downloadPage: 'https://rayinpixels.itch.io/she-awaits-003',
+		downloadPage: 'https://rayinpixels.itch.io/she-awaits-003'
+	},
+	braingirl: {
+		madeBy: 'dmn',
+		releasedOn: { day: 24, month: 2, year: 2022  },
+		lastUpdate: { day: 24, month: 2, year: 2022 },
+		version: '0.04c',
+		status: 'In development',
+		downloadPage: 'https://www.mediafire.com/file/58tdhg671pltcmf/BRAINGIRL_Test_Build_2.zip/file',
+		downloadLabel: 'Mediafire'
 	}
 };
 
