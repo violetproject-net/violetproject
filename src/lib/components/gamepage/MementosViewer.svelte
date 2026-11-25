@@ -27,7 +27,7 @@
 	});
 	let visible = $derived.by(() => {
 		const q = query.trim().toLowerCase();
-		return mementos.unlockedList
+		return mementos.all
 			.filter((memento) => {
 				if (!q) return true;
 				const game = memento.game ? locations.gameName(memento.game) : '';

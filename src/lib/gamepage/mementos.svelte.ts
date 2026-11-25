@@ -181,11 +181,11 @@ export function mementoArtUrls(memento: Pick<Memento, 'name' | 'anim'>): string[
 		const stem = name.slice(0, -extMatch[0].length);
 		const ext = extMatch[1].toLowerCase();
 		const rest = IMAGE_EXTS.filter((candidate) => candidate !== ext);
-		return [ext, ...rest].map((candidate) => `${ART_DIR}${encodeURIComponent(stem)}.${candidate}`);
+		return [ext, ...rest].map((candidate) => `${ART_DIR}${stem}.${candidate}`);
 	}
 
 	const exts = memento.anim ? ANIMATED_EXTS : IMAGE_EXTS;
-	return exts.map((ext) => `${ART_DIR}${encodeURIComponent(name)}.${ext}`);
+	return exts.map((ext) => `${ART_DIR}${name}.${ext}`);
 }
 
 function safeScope(name: string): string {
@@ -257,7 +257,7 @@ export class Mementos {
 	}
 
 	get count(): number {
-		return this.all.length ? this.unlockedList.length : this.unlocked.length;
+		return this.all.length;
 	}
 
 	unlock(name: string): boolean {
