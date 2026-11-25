@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { mementoArtUrls } from '../../gamepage/mementos.svelte';
-	import type { Memento } from '../../gamepage/mementos.svelte';
+	import { Mementos, type Memento } from '../../gamepage/mementos.svelte';
 	let {
 		memento,
 		size = 111,
@@ -26,7 +26,7 @@
 
 {#if !exhausted && src}
 	<img
-		class="mementoart"
+		class={["mementoart", { locked: !Mementos.INSTANCE.has(memento.name) }]}
 		{src}
 		alt={alt || memento.name}
 		style={`--memento-size:${size}px`}

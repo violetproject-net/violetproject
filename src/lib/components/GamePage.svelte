@@ -68,7 +68,7 @@
 	/* const npcSync = new NpcSync(); */
 	const ping = new PingPlayer();
 	const version = new VersionWatcher();
-	const mementos = new Mementos();
+	const mementos = Mementos.INSTANCE;
 
 	let topTab: TopTab = $state('chat');
 	let chatTab: ChatTab = $state('game');

@@ -194,6 +194,8 @@ function safeScope(name: string): string {
 }
 
 export class Mementos {
+	static #INSTANCE: Mementos;
+
 	all = $state<Memento[]>([]);
 	unlocked = $state<string[]>([]);
 	loading = $state(false);
@@ -206,9 +208,19 @@ export class Mementos {
 	private scope = 'guest';
 	private storageKey = `${STORAGE_PREFIX}:guest`;
 
-	constructor() {
+	private constructor() {
 		this.loadUnlocked();
 	}
+
+	// we need to be able to access this everywhere but
+	// its instantiated in gamepage and not exposed,
+	// no reason for this not to just be a singleton
+	public static get INSTANCE(): Mementos {
+		if (!Mementos.#INSTANCE) {
+			Mementos.#INSTANCE = new Mementos();
+		}
+		return Mementos.#INSTANCE;
+	}	
 
 	setPlayer(name: string, uid?: string) {
 		const account = String(uid || '').trim();

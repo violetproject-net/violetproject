@@ -38,6 +38,11 @@
 	border-radius: 6px;
 }
 
+/* bleh */
+.gamepage .locked {
+	opacity: 33%;
+}
+
 .gamepage .mementoart-missing {
 	display: flex;
 	align-items: center;
@@ -103,4 +108,8 @@
 
 .gamepage .mementocredit {
 	text-align: center;
+}
+
+.gamepage .mementolock {
+	height: 30px;
 }
